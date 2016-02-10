@@ -41,9 +41,8 @@ public class MainActivityFragment extends Fragment {
 
         configFirebase();   // Hacemos el config firebase
 
-        ref = new Firebase("https://helicidatest.firebaseio.com/");
-
-        mensajes = ref.child("mensaje");
+        ref = new Firebase("https://helicidatest.firebaseio.com/"); // Ruta firebase
+        mensajes = ref.child("mensaje"); // mensajes
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,6 +56,7 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
+        // Declaramos el listView
         ListView listUsers = (ListView) fragmentoLista.findViewById(R.id.listView1);
 
         FirebaseListAdapter mAdapter = new FirebaseListAdapter<Mensaje>(getActivity(), Mensaje.class, R.layout.adapter_firebase_users_layout, mensajes) {
@@ -77,6 +77,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void configFirebase(){
+        // Configuración
         Firebase.setAndroidContext(getContext());
         Firebase.getDefaultConfig().setPersistenceEnabled(true);
     }

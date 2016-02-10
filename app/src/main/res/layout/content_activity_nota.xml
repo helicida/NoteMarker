@@ -12,17 +12,6 @@
     tools:context="helicida.firebasetest.ActivityNota"
     tools:showIn="@layout/activity_activity_nota">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tituloText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +26,6 @@
         android:layout_height="wrap_content"
         android:text="Descripción"
         android:id="@+id/textView2"
-        android:layout_below="@+id/tituloText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="24dp" />
