@@ -1,4 +1,4 @@
-package helicida.firebasetest;
+package helicida.firebasetest.ListNotes;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -21,6 +21,9 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseListAdapter;
+
+import helicida.firebasetest.Mensaje;
+import helicida.firebasetest.R;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -46,7 +49,7 @@ public class NotesActivityFragment extends Fragment implements LocationListener 
 
         final View fragmentoLista = inflater.inflate(R.layout.fragment_notes, container, false); //Definimos el fragment
 
-        dialog = ProgressDialog.show(getContext(), "", "Localizando...");   // Dialog que mostrará localizando
+        dialog = ProgressDialog.show(getContext(), "", "Localizando tu posición...");   // Dialog que mostrará localizando
         ref = new Firebase("https://helicidatest.firebaseio.com/");         // Ruta firebase
 
         // Boton
@@ -54,7 +57,7 @@ public class NotesActivityFragment extends Fragment implements LocationListener 
 
         // Localizacion
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 10, this);
 
         subirButton.setOnClickListener(new View.OnClickListener() {
             @Override

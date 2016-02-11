@@ -1,8 +1,9 @@
-package helicida.firebasetest;
+package helicida.firebasetest.ListNotes;
 
-import android.support.v4.app.Fragment;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +16,17 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseListAdapter;
 
-import java.util.List;
+import helicida.firebasetest.Mensaje;
+import helicida.firebasetest.R;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-public class MainActivityFragment extends Fragment {
+
+public class ListNotesFragment extends Fragment {
 
     Firebase ref;
     Firebase mensajes;
     TextView text1, text2;
 
-    public MainActivityFragment() {}
+    public ListNotesFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View fragmentoLista = inflater.inflate(R.layout.fragment_main, container, false); //Definimos el fragment
+        final View fragmentoLista = inflater.inflate(R.layout.fragment_list_notes, container, false); //Definimos el fragment
 
         configFirebase();   // Hacemos el config firebase
 
@@ -60,15 +60,15 @@ public class MainActivityFragment extends Fragment {
         ListView listUsers = (ListView) fragmentoLista.findViewById(R.id.listView1);
 
         FirebaseListAdapter mAdapter = new FirebaseListAdapter<Mensaje>(getActivity(), Mensaje.class, R.layout.adapter_firebase_users_layout, mensajes) {
-                @Override
-                protected void populateView(View view, Mensaje mensaje, int position) {
-                    super.populateView(view, mensaje, position);
-                    text1 = (TextView) view.findViewById(R.id.text1);
-                    text1.setText(mensaje.getTitulo() + "   -   " + mensaje.getLatitud() + ", " + mensaje.getLongitud());
+            @Override
+            protected void populateView(View view, Mensaje mensaje, int position) {
+                super.populateView(view, mensaje, position);
+                text1 = (TextView) view.findViewById(R.id.text1);
+                text1.setText(mensaje.getTitulo() + "   -   " + mensaje.getLatitud() + ", " + mensaje.getLongitud());
 
-                    text2 = (TextView) view.findViewById(R.id.text2);
-                    text2.setText(String.valueOf(mensaje.getDescripcion()));
-                }
+                text2 = (TextView) view.findViewById(R.id.text2);
+                text2.setText(String.valueOf(mensaje.getDescripcion()));
+            }
         };
 
         listUsers.setAdapter(mAdapter);
