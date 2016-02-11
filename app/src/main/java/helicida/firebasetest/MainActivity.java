@@ -21,6 +21,7 @@ import java.util.List;
 
 import helicida.firebasetest.ListNotes.ListNotesFragment;
 import helicida.firebasetest.ListNotes.NotesActivity;
+import helicida.firebasetest.Maps.OSMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Le acoplamos tantas pestanyas como queramos
         adapter.addFragment(new ListNotesFragment(), "Notas");
-        // adapter.addFragment(new MapFragment(), "Mapa");
+        adapter.addFragment(new OSMap(), "Mapa");
 
         // Acoplamos del todo las pestanyas y las activamos
         viewPager.setAdapter(adapter);
