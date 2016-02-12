@@ -109,7 +109,7 @@ public class OSMap extends Fragment {
         map.getOverlays().add(marcadoresMensajes);
 
         // Le damos la imagen drawable que queremos que tenga
-        Drawable clusterIconD = getResources().getDrawable(R.drawable.message_cluster);
+        Drawable clusterIconD = getResources().getDrawable(R.drawable.cluster);
         Bitmap clusterIcon = ((BitmapDrawable)clusterIconD).getBitmap();
 
         // Y le definimos nuestra imagen y ajustamos el tamaño
@@ -124,14 +124,17 @@ public class OSMap extends Fragment {
                     // Mensaje que extraemos de Firebase
                     Mensaje mensaje = postSnapshot.getValue(Mensaje.class);
 
+                    // Le damos la imagen drawable que queremos que tenga
+                    Drawable markerIconD = getResources().getDrawable(R.drawable.marcador_100x100);
+
                     // Definimos el marcador y hacemos que nos marque la localización del mensaje
                     Marker marker = new Marker(map);
                     GeoPoint point = new GeoPoint(mensaje.getLatitud(), mensaje.getLongitud());
+                    marker.setIcon(markerIconD);
                     marker.setPosition(point);
 
                     // Ajustamos el tamaño, la transparencia
                     marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                    marker.setAlpha(0.6f);
 
                     // Le ponemos el título y la descripción
                     marker.setTitle(mensaje.getTitulo());
