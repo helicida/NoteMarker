@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (CustomViewPager) findViewById(R.id.viewpager);
         pestanyas = (TabLayout) findViewById(R.id.pestanyas);
 
-        //  Acoplamos el TAB al viewPager
+        // Acoplamos el TAB al viewPager
         setupViewPager(viewPager);
         pestanyas.setupWithViewPager(viewPager);
 
