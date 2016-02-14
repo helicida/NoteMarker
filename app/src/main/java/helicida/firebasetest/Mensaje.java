@@ -7,6 +7,7 @@ public class Mensaje {
 
     private String titulo;
     private String descripcion;
+    private String rutaImagen;
     private double latitud;
     private double longitud;
 
@@ -14,9 +15,10 @@ public class Mensaje {
 
     }
 
-    public Mensaje(String titulo, String descripcion, double latitud, double longitud) {
+    public Mensaje(String titulo, String descripcion, String rutaImagen, double latitud, double longitud) {
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.rutaImagen = rutaImagen;
         this.latitud = latitud;
         this.longitud = longitud;
     }
@@ -29,6 +31,10 @@ public class Mensaje {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 
     public double getLatitud() {
@@ -47,6 +53,10 @@ public class Mensaje {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 
     public void setLatitud(double latitud) {
